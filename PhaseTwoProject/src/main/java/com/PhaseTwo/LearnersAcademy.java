@@ -56,7 +56,8 @@ public class LearnersAcademy {
 		//getTeachersList();
 		
 // assigning a class to a subject ----------------------------------------------------------------------------------------------------
-		asignClass("10/1", "English10");
+//		asignClass("10/4", "Science10");
+		getClassesList();
 		
 
 	}
@@ -139,20 +140,30 @@ public class LearnersAcademy {
 		else 
 			System.out.println("faile assigning a class to a subject");
 		
-		getClassesList();
+		//getClassesList(classId);
 		
 	}
 	
 	static void getClassesList() {
-		String qry = "SELECT `class_ID`, `subject` FROM `subjects` WHERE class_ID = '10/1';";
+		//String classId
+		// qry = String.format( "SELECT `class_ID`, `subject` FROM `subjects` WHERE class_ID = '%s';", classId);
+		 qry = "SELECT `class_ID`, `subject` FROM `subjects` WHERE class_ID ='10/4'";
+		// qry="SELECT * FROM subjects";
+		// System.out.println(qry);
+		 // qry = "SELECT `class_ID`, `subject` FROM `subjects` WHERE class_ID = '10/1';";
+		 String classId = "10/4";
+		 System.out.print("Class : " + classId+ " is assign to subjects: [ ");
 		try {
 			Statement theStatment = dbCon.createStatement();
 			resultSet = theStatment.executeQuery(qry);
+			//System.out.print("Class : "+resultSet.getString("class_ID") + " ");
 			while (resultSet.next()) {
-				System.out.print("Class : "+resultSet.getString("class_ID") + " ");
-				System.out.println("is assign to subjects: ["+ resultSet.getString("subject"));
+				
+				//System.out.print("Class : "+resultSet.getString("class_ID") + " ");
+				System.out.print( resultSet.getString("subject")+" ");
 			
 			}
+			System.out.println("]");
 			dbCon.close(); // close connection
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
