@@ -22,8 +22,10 @@ public class LearnersAcademy {
 	private static Statement theStatement;
 
 	private static ResultSet resultSet;
+	
+	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 	
 
 		try {
@@ -44,7 +46,118 @@ public class LearnersAcademy {
 		} catch (SQLException e) {
 			System.out.println("Can't connect, some issues  : " + e.getMessage());
 		}
+// adding a student to student list AND printing the list-----------------------------------------------------------------------------
+	//	studentList("10003","Bader Almansour", "10/1", 10);
+// only printing the student list-----------------------------------------------------------------------------------------------------
+		//getStudentList();
+// adding a new teacher --------------------------------------------------------------------------------------------------------------
+	//	teacherList("Aljazy Alenzi","Biology12",4,"12/1 - 12/2 - 13/3 - 12/4");
+// Only printing teachers list
+		//getTeachersList();
+		
+// assigning a class to a subject ----------------------------------------------------------------------------------------------------
+		asignClass("10/1", "English10");
+		
 
+	}
+	
+	static void studentList(String studentId, String studentName , String classId ,Integer grade ) throws SQLException {
+		
+		qry = String.format("INSERT INTO `students` (`student_ID`, `student_name`, `class_ID`, `grade`) "
+				+ "VALUES ('%s', '%s', '%s', '%d');", studentId, studentName, classId, grade);
+
+//		Execute the query
+		if(theStatement.executeUpdate(qry) > 0)
+			System.out.println("A new student is added to the list.");
+		else 
+			System.out.println("failed adding a student");
+		
+		getStudentList();
+		
+	}
+	
+	static void getStudentList() {
+	   qry = "SELECT * FROM students";
+		try {
+			Statement theStatment = dbCon.createStatement();
+			resultSet = theStatment.executeQuery(qry);
+			while (resultSet.next()) {
+				System.out.print("Student ID: "+resultSet.getString("student_ID") + " ");
+				System.out.print("Student Name: " + resultSet.getString("student_name"));
+				System.out.print(" In " + resultSet.getString("grade")+"th grade");
+				System.out.println(" at class: " + resultSet.getString("class_ID"));
+			}
+			dbCon.close(); // close connection
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	static void teacherList(String teacherName , String subject ,Integer nClasses, String classId ) throws SQLException {
+		 qry=String.format("INSERT INTO `teachers`(`teacher_ID`, `teacher_name`, `subjects`, `number_of_classes`, `class_ID`)"
+		 		+ " VALUES (null,'%s','%s',%d,'%s')", teacherName, subject, nClasses, classId) ;
+		
+		//qry = String.format("INSERT INTO `teachers`(`teacher_ID`, `teacher_name`, `subjects`, `number_of_classes`, `class_ID`) "
+			//	+ "VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')", null);
+	
+//		Execute the query
+		if(theStatement.executeUpdate(qry) > 0)
+			System.out.println("A new teacher is added to the list.");
+		else 
+			System.out.println("failed adding a teacher");
+		
+		getTeachersList();
+		
+	}
+	
+	static void getTeachersList() {
+		String qry = "SELECT * FROM teachers";
+		try {
+			Statement theStatment = dbCon.createStatement();
+			resultSet = theStatment.executeQuery(qry);
+			while (resultSet.next()) {
+				System.out.print("teacher's ID: "+resultSet.getString("teacher_ID") + " ");
+				System.out.print("teacher's Name: " + resultSet.getString("teacher_name") + " subjects: ["+ resultSet.getString("subjects"));
+				System.out.print("] teaches " + resultSet.getString("number_of_classes")+" classes: [");
+				System.out.println(resultSet.getString("class_ID")+"]");
+			}
+			dbCon.close(); // close connection
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	static void asignClass(String classId, String subject) throws SQLException {
+		// Assign classes for subjects from the master list
+		qry = String.format("INSERT INTO `subjects` (`class_ID`, `subject`, `teacher_name`) "
+				+ "VALUES ('%s', '%s', '');", classId,subject);
+		
+		if(theStatement.executeUpdate(qry) > 0)
+			System.out.println("Class "+ classId + " is assign to subject "+ subject);
+		else 
+			System.out.println("faile assigning a class to a subject");
+		
+		getClassesList();
+		
+	}
+	
+	static void getClassesList() {
+		String qry = "SELECT `class_ID`, `subject` FROM `subjects` WHERE class_ID = '10/1';";
+		try {
+			Statement theStatment = dbCon.createStatement();
+			resultSet = theStatment.executeQuery(qry);
+			while (resultSet.next()) {
+				System.out.print("Class : "+resultSet.getString("class_ID") + " ");
+				System.out.println("is assign to subjects: ["+ resultSet.getString("subject"));
+			
+			}
+			dbCon.close(); // close connection
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
