@@ -37,7 +37,16 @@ Subjects subjectList = new Subjects();
 List<Subjects> subjects = new ArrayList<>();
 subjects = subjectList.getSubjectList();
 %>
- <table align="left">
+
+ 
+    
+
+
+<table cellspacing="1" cellpadding="0" width="1318" bgcolor="gray">
+    <tr>
+        <td width="200" bgcolor="white">
+            <!-- write here -->
+             <table>
     <thead>
         <tr>
             <th colspan="4">Students</th>
@@ -62,15 +71,10 @@ subjects = subjectList.getSubjectList();
   </tr>
     </tbody>
 </table>
-<FORM action="getStudent.jsp" >
-<INPUT  TYPE="Text" name="StudentID" placeholder="Student Id">
-<INPUT  TYPE="Text" name="StudentName" placeholder="Student Name">
-<INPUT  TYPE="Text" name="ClassID" placeholder="Class">
-<INPUT  TYPE="Text" name="Grade" placeholder="Grade">
-<P>
-<INPUT TYPE="Submit" Value="add a student">
-</FORM>
- <table>
+        </td>
+        <td width="768" bgcolor="white">
+           <!-- write here -->
+            <table>
     <thead>
         <tr>
             <th colspan="4">Teachers</th>
@@ -97,8 +101,10 @@ subjects = subjectList.getSubjectList();
   </tr>
     </tbody>
 </table>
-
- <table align="left">
+        </td>
+        <td width="300" bgcolor="white">
+           <!-- write here -->
+           <table>
     <thead>
         <tr>
             <th colspan="4">Classes</th>
@@ -122,6 +128,10 @@ subjects = subjectList.getSubjectList();
   </tr>
     </tbody>
     
+     </table>
+        </td>
+    </tr>
+</table>
      <table>
     <thead>
         <tr>
@@ -146,6 +156,23 @@ subjects = subjectList.getSubjectList();
   </tr>
     </tbody>
 </table>
-</table>
+
+  <form action="getStudent.jsp" >
+<INPUT  TYPE="Text" name="StudentID" placeholder="Student Id">
+<INPUT  TYPE="Text" name="StudentName" placeholder="Student Name">
+<INPUT  TYPE="Text" name="ClassID" placeholder="Class">
+<INPUT  TYPE="Text" name="Grade" placeholder="Grade">
+<P>
+<INPUT TYPE="Submit" Value="add a student">
+</form>
+<form action="getTeacher.jsp" >
+<INPUT  TYPE="Text" name="teacherID" placeholder="Teacher Id">
+<INPUT  TYPE="Text" name="teacherName" placeholder="Teacher Name">
+<INPUT  TYPE="Text" name="Subject" placeholder="Subject">
+<INPUT  TYPE="Text" name="NumberOfClasses" placeholder="Number of Classes">
+<INPUT  TYPE="Text" name="ClassID" placeholder="Classes">
+<P>
+<INPUT TYPE="Submit" Value="add a teacher">
+</form>
 </body>
 </html>

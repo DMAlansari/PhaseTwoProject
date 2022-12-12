@@ -98,12 +98,6 @@ public class LearnersAcademy {
 						+ " VALUES (null,'%s','%s',%d,'%s')",
 				teacherName, subject, nClasses, classId);
 
-		// qry = String.format("INSERT INTO `teachers`(`teacher_ID`, `teacher_name`,
-		// `subjects`, `number_of_classes`, `class_ID`) "
-		// + "VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')",
-		// null);
-
-//		Execute the query
 		if (theStatement.executeUpdate(qry) > 0)
 			System.out.println("A new teacher is added to the list.");
 		else
