@@ -79,12 +79,6 @@ public class Teacher {
 			Statement theStatment = dbCon.createStatement();
 			resultSet = theStatment.executeQuery(qry);
 			while (resultSet.next()) {
-				System.out.print("teacher's ID: " + resultSet.getString("teacher_ID") + " ");
-				System.out.print("teacher's Name: " + resultSet.getString("teacher_name") + " subjects: ["
-						+ resultSet.getString("subjects"));
-				System.out.print("] teaches " + resultSet.getString("number_of_classes") + " classes: [");
-				System.out.println(resultSet.getString("class_ID") + "]");
-				
 
 				teacherList.add(new Teacher(resultSet.getInt("teacher_ID")
 						,resultSet.getString("teacher_name")

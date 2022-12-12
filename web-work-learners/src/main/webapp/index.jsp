@@ -2,6 +2,7 @@
 <%@ page import="com.LearnersAcademy.Student"%>
 <%@ page import="com.LearnersAcademy.Teacher"%>
 <%@ page import="com.LearnersAcademy.Classes"%>
+<%@ page import="com.LearnersAcademy.Subjects"%>
 <%@ page import= "java.util.ArrayList"%>
 <%@ page import= "java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -13,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Testing web...
+
 <%
 response.setContentType("text/html");
 
@@ -21,6 +22,7 @@ new DataBase().met();
 DataBase studentObject = new DataBase();
 Student studentList = new Student();
 List<Student> students = new ArrayList<>();
+students.clear();
 students = studentList.getStudentList();
 
 Teacher teacherList = new Teacher();
@@ -31,16 +33,11 @@ Classes classesList = new Classes();
 List<Classes> classes = new ArrayList<>();
 classes = classesList.getClassesList();
 
+Subjects subjectList = new Subjects();
+List<Subjects> subjects = new ArrayList<>();
+subjects = subjectList.getSubjectList();
 %>
-<select name="Student">
- <%
- for(Student s: students){
- %>
- <option value ="<%= s %>"><%= s %></option>
-               
-            <%}%>
-</select>
- <table>
+ <table align="left">
     <thead>
         <tr>
             <th colspan="4">Students</th>
@@ -65,7 +62,14 @@ classes = classesList.getClassesList();
   </tr>
     </tbody>
 </table>
-
+<FORM action="getStudent.jsp" >
+<INPUT  TYPE="Text" name="StudentID" placeholder="Student Id">
+<INPUT  TYPE="Text" name="StudentName" placeholder="Student Name">
+<INPUT  TYPE="Text" name="ClassID" placeholder="Class">
+<INPUT  TYPE="Text" name="Grade" placeholder="Grade">
+<P>
+<INPUT TYPE="Submit" Value="add a student">
+</FORM>
  <table>
     <thead>
         <tr>
@@ -94,7 +98,7 @@ classes = classesList.getClassesList();
     </tbody>
 </table>
 
- <table>
+ <table align="left">
     <thead>
         <tr>
             <th colspan="4">Classes</th>
@@ -117,6 +121,31 @@ classes = classesList.getClassesList();
     <%} %>
   </tr>
     </tbody>
+    
+     <table>
+    <thead>
+        <tr>
+            <th colspan="4">Subjects</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Subject</th>
+            <th>Teacher</th>
+            <th>Classes</th>
+        </tr>
+         <% for(Subjects su: subjects){
+        	 %>
+         <tr>
+          
+    <td><%=su.getSubject()%></td>
+    <td><%=su.getTeacher()%></td>
+    <td><%=su.getClassId()%></td>
+ 
+    <%} %>
+  </tr>
+    </tbody>
+</table>
 </table>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.LearnersAcademy;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,9 +9,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.LearnersAcademy.DataBase;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 
-public class Student  { 
+
+
+
+public class Student { 
 	public static final String DB_URLTOCONNECT = "jdbc:mysql://localhost:3306/learners_academy";
 
 	public static final String DB_USERNAME = "root";
@@ -40,7 +45,7 @@ public class Student  {
 	private String grade;
 
 	List<Student> studentList = new ArrayList<>();
-
+	
 //	@Override
 //	public String toString() {
 //		return "ID: " + id + " User Name: " + this.firstName + " " + this.lastName + " is " + age
@@ -95,12 +100,14 @@ public class Student  {
 	}
 	
 	public List<Student> getStudentList() throws SQLException {
+		studentList.clear();
 		Connection dbCon = DriverManager.getConnection(DB_URLTOCONNECT, DB_USERNAME, DB_PASSWORD);
+		theStatement = dbCon.createStatement();
 	//	studentList.clear();
-		System.out.println("inside student ");
+	//	System.out.println("inside student ");
 	//	String s1,s2,s3,s4;
 		qry = "SELECT * FROM students";
-		
+	
 		try {
 			Statement theStatment = dbCon.createStatement();
 			resultSet = theStatment.executeQuery(qry);
@@ -124,9 +131,23 @@ public class Student  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return studentList;
-	}
+		return studentList;}
 	
+
+	public void addStudent (String studentId, String studentName, String classId, String grade) throws SQLException {
+		Connection dbCon = DriverManager.getConnection(DB_URLTOCONNECT, DB_USERNAME, DB_PASSWORD);
+		theStatement = dbCon.createStatement();
+
+		qry = String.format("INSERT INTO `students` (`student_ID`, `student_name`, `class_ID`, `grade`) "
+				+ "VALUES ('%s', '%s', '%s', '%s');", studentId, studentName, classId, grade);
+//		Execute the query
+		if (theStatement.executeUpdate(qry) > 0)
+			System.out.println("A new student is added to the list.");
+		else
+			System.out.println("failed adding a student");}
 	
+public void printtest(String studentId ,String studentName, String classId, String grade) {
+	System.out.println(studentId + " " + studentName + " " +  classId + " " +  grade);
+}
 
 }

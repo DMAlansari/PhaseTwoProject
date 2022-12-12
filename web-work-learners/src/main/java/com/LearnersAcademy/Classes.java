@@ -20,6 +20,8 @@ public class Classes {
 	private String classId;
 	private Integer capacity;
 	private Integer grade;
+	
+	
 
 	List<Classes> classList = new ArrayList<>();
 
