@@ -118,5 +118,20 @@ public class Teacher {
 		else
 			System.out.println("failed adding a teacher");
 	}
+	
+	public void asignTeacher(String teacherName, String classId, String subject) throws SQLException {
+		// Assign classes for subjects from the master list
+
+		Connection dbCon = DriverManager.getConnection(DB_URLTOCONNECT, DB_USERNAME, DB_PASSWORD);
+		theStatement = dbCon.createStatement();
+		qry = String.format(
+				"UPDATE `subjects` SET `teacher_name`='%s' WHERE subject = '%s' AND class_ID = '%s';", teacherName, subject, classId);
+
+		if (theStatement.executeUpdate(qry) > 0)
+			System.out.println("Teacher " + teacherName + " is assign to class " + classId + "for subject: " + subject);
+		else
+			System.out.println("failed assigning a teacher");
+
+	}
 
 }

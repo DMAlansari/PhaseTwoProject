@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page import="com.LearnersAcademy.DataBase"%>
 <%@ page import="com.LearnersAcademy.Student"%>
 <%@ page import="com.LearnersAcademy.Teacher"%>
@@ -9,6 +10,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<style><%@include file="/style.css"%></style>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -174,5 +176,42 @@ subjects = subjectList.getSubjectList();
 <P>
 <INPUT TYPE="Submit" Value="add a teacher">
 </form>
+
+<div class="assign">
+<form action= "assignTeacher.jsp">
+<label>assign a Teacher</label>
+
+<select name= "assignTeacher">
+
+<%
+response.setContentType("text/html");
+for(Teacher t: teachers){
+	out.print("<option>" + t.getTeacherName() + "</option>");}
+%>
+</select>
+
+<label>for a class</label>
+
+<select name="forClass">
+<%
+response.setContentType("text/html");
+for(Classes c: classes){
+	out.print("<option>" + c.getClassId() + "</option>");}
+%>
+</select>
+
+<label>for subject</label>
+
+<select name="forSubject">
+<%
+response.setContentType("text/html");
+for(Subjects su: subjects){
+	out.print("<option>" + su.getSubject() + "</option>");}
+%>
+</select>
+<INPUT TYPE="Submit" Value="assign">
+</form>
+</div>
+
 </body>
 </html>
