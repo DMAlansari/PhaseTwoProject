@@ -1,7 +1,111 @@
 @charset "ISO-8859-1";
 
-.assign {
-    
-  grid-column: 3 / span 2;
-  grid-row: third-line / 4;
+img{
+	
+	width: 100%;
 }
+.login {
+    height: 1000px;
+    width: 100%;
+    background: #d9d8d0;
+    position: relative;
+}
+body{
+	background:#d9d8d0;
+}
+
+.bigTabletd{
+	padding:10px;
+}
+.addstudent{
+  position:relative;
+  top: 50px;
+  bottom: 0px;
+  left: 70px;
+  right: 0px;
+  height:100;
+}
+.tables{
+  position:relative;
+  top: 50px;
+  bottom: 0px;
+  left: 70px;
+  right: 0px;
+}
+.loginbox {
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+   
+}
+
+.loginbox .left{
+  width: 400%;
+  height: 100%;
+  padding: 25px 25px;
+  
+}
+
+.left .contact{
+	
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 73%;
+    margin: auto;
+    flex-direction: column;
+    
+}
+
+
+div.photo {
+  top: 500px;
+  bottom: 0px;
+  left: 30px;
+  right: 0px;
+}
+.loginbox .right{
+  width: 59%;
+  height: 100%  
+}
+.submit {
+	background: #76320a;
+    border: none;
+    padding: 15px 70px;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    
+    color: #ffffff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+    -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+    box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
+
+
+
+.left input {
+    border: none;
+    width: 80%;
+    margin: 15px 0px;
+    border-bottom: 1px solid #4f30677d;
+    padding: 7px 9px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+

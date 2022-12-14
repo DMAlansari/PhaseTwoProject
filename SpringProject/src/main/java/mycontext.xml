@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+<bean class="com.MyFirst.SpringProject.Engineer" id="theEngineer">
+<!--  Setter DI here ( here we set the values -->
+<property name="id" value="12345"/>  <!-- calls setter -->
+<property name="name" value="Dalal"/> 
+<property name="Skills" value="spring - html - css - java - .net "></property> 
+
+</bean>
+
+
+<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/training_kfh"/>
+        <property name="username" value="root"/>
+        <property name="password" value=""/>
+    </bean>
+</beans>
