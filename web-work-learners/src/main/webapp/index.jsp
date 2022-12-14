@@ -44,17 +44,17 @@ subjects = subjectList.getSubjectList();
     
 
 <div class="tables">
-<table cellspacing="1" cellpadding="0" width="1318" bgcolor="gray">
+<table class= "bigtabell" cellspacing="5" cellpadding="0" width="1318" bgcolor="#76320a">
     <tr>
         <td width="200" bgcolor="white" class="bigTabletd">
             <!-- write here -->
              <table>
     <thead>
         <tr>
-            <th colspan="4">Students</th>
+            <th class="tHeader1" width="300" bgcolor="#76320a"  colspan="4">Students</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="Selement">
         <tr>
             <th>Students Id  </th>
             <th>Student Name  </th>
@@ -68,36 +68,36 @@ subjects = subjectList.getSubjectList();
     <td><%=s.getStudentId()%></td>
     <td><%=s.getStudentName()%></td>
     <td><%=s.getClassId()%></td>
-    <td><%=s.getGrade()%></td>
+    <td class="Sselement"><%=s.getGrade()%></td>
     <%} %>
   </tr>
     </tbody>
 </table>
         </td>
-        <td width="768" bgcolor="white" class="bigTabletd">
+        <td  width="768" bgcolor="white" class="bigTabletd">
            <!-- write here -->
             <table>
     <thead>
         <tr>
-            <th colspan="4">Teachers</th>
+            <th class="tHeader2" width="1200" bgcolor="#76320a" colspan="4">Teachers</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th>Teacher ID  </th>
-            <th>Teacher Name  </th>
-            <th>Subjects  </th>
-            <th>Number of Classes</th>
-            <th>Class ID</th>
+            <th class="tCol">Teacher ID  </th>
+            <th class="tCol">Teacher Name  </th>
+            <th class="tCol">Subjects  </th>
+            <th class="tCol">Number of Classes</th>
+            <th class="tCol">Class ID</th>
         </tr>
          <% for(Teacher t: teachers){
         	 %>
-         <tr>
+         <tr class = "teachElements">
           
-    <td><%=t.getTeacherId()%></td>
-    <td><%=t.getTeacherName()%></td>
-    <td><%=t.getSubject()%></td>
-    <td><%=t.getNumberOfClasses()%></td>
+    <td class="Telement"><%=t.getTeacherId()%></td>
+    <td class="Telement"><%=t.getTeacherName()%></td>
+    <td class="Telement"><%=t.getSubject()%></td>
+    <td class="Teelement"><%=t.getNumberOfClasses()%></td>
       <td><%=t.getClassId()%></td>
     <%} %>
   </tr>
@@ -109,22 +109,26 @@ subjects = subjectList.getSubjectList();
            <table>
     <thead>
         <tr>
-            <th colspan="4">Classes</th>
+        
+            <th  class="tHeader" width="300" bgcolor="#76320a"  colspan="4">  Classes  </th>
+            
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <th>Class</th>
-            <th>Capacity</th>
-            <th>Grade</th>
+    <tbody class="classes">
+    <div class="table-header">
+        <tr class="colomns">
+            <th class="col1">Classes</th>
+            <th class="col2">Capacity</th>
+            <th class="col3">Grade</th>
         </tr>
+        </div>
          <% for(Classes c: classes){
         	 %>
-         <tr>
+         <tr class="elements">
           
-    <td><%=c.getClassId()%></td>
-    <td><%=c.getCapacity()%></td>
-    <td><%=c.getGrade()%></td>
+    <td ><%=c.getClassId()%></td>
+    <td class="cells"><%=c.getCapacity()%></td>
+    <td ><%=c.getGrade()%></td>
  
     <%} %>
   </tr>
@@ -141,7 +145,7 @@ subjects = subjectList.getSubjectList();
 <INPUT  TYPE="Text" name="ClassID" placeholder="Class">
 <INPUT  TYPE="Text" name="Grade" placeholder="Grade">
 
-<INPUT class="submit1" TYPE="Submit" Value="add a student">
+<INPUT class="submit1" TYPE="Submit" Value="Add Student">
 </form>
 <form action="getTeacher.jsp" >
 <INPUT  TYPE="Text" name="teacherID" placeholder="Teacher Id">
@@ -149,38 +153,37 @@ subjects = subjectList.getSubjectList();
 <INPUT  TYPE="Text" name="Subject" placeholder="Subject">
 <INPUT  TYPE="Text" name="NumberOfClasses" placeholder="Number of Classes">
 <INPUT  TYPE="Text" name="ClassID" placeholder="Classes">
-<INPUT class="submit2" TYPE="Submit" Value="add a teacher">
+<INPUT class="submit2" TYPE="Submit" Value="Add Teacher">
 </form>
 </div>
   
-
+<table class= "ThirdTable" cellspacing="5" cellpadding="0" width="1318" bgcolor="#76320a">
+    <tr>
+        <td width="200" bgcolor="white" class="bigTabletd">
      <table>
     <thead>
         <tr>
-            <th colspan="4">Subjects</th>
+            <th class="thHeader" width="2000" bgcolor="#76320a"  colspan="4">Subjects</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th>Subject</th>
-            <th>Teacher</th>
+            <th class="techerC">Teacher</th>
             <th>Classes</th>
         </tr>
          <% for(Subjects su: subjects){
         	 %>
          <tr>
           
-    <td><%=su.getSubject()%></td>
-    <td><%=su.getTeacher()%></td>
-    <td><%=su.getClassId()%></td>
+    <td class="thElement1"><%=su.getSubject()%></td>
+    <td class="thElement2"><%=su.getTeacher()%></td>
+    <td class="thElement3"><%=su.getClassId()%></td>
  
     <%} %>
   </tr>
     </tbody>
 </table>
-
-
-
 <div class="assign">
 <form action= "assignTeacher.jsp">
 <label>assign a Teacher</label>
@@ -216,6 +219,10 @@ for(Subjects su: subjects){
 <INPUT class="submit" TYPE="Submit" Value="assign">
 </form>
 </div>
-<section class="login">
+    </tr>
+</table>
+
+
+
 </body>
 </html>

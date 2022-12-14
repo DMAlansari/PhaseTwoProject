@@ -14,9 +14,11 @@ public class App
     	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("mycontext.xml");
     	
     	//get a reference to the bean
-    	Engineer engineer = context.getBean("theEngineer",Engineer.class);
+    	//Engineer engineer = context.getBean("theEngineer",Engineer.class);
     	// call methods on the bean
-    	engineer.workForWages();
+    	//engineer.workForWages();
+    	
+    	  DbOperations dbConnect = context.getBean("dbOperations", DbOperations.class);
     	
     	
     }

@@ -125,8 +125,8 @@ public class Teacher {
 		Connection dbCon = DriverManager.getConnection(DB_URLTOCONNECT, DB_USERNAME, DB_PASSWORD);
 		theStatement = dbCon.createStatement();
 		qry = String.format(
-				"UPDATE `subjects` SET `teacher_name`='%s' WHERE subject = '%s' AND class_ID = '%s';", teacherName, subject, classId);
-
+				"UPDATE `subjects` SET `class_ID`='%s',`teacher_name`='%s' WHERE `subject`='%s';",classId, teacherName, subject);
+System.out.println(qry);
 		if (theStatement.executeUpdate(qry) > 0)
 			System.out.println("Teacher " + teacherName + " is assign to class " + classId + "for subject: " + subject);
 		else

@@ -15,8 +15,44 @@ body{
 }
 
 .bigTabletd{
-	padding:10px;
+	padding:25px;
+    border-radius: 8px;
 }
+
+.bigtabell{
+	 border-radius: 8px;
+}
+
+.classes{
+	
+position:relative;
+
+
+  left: 50px;
+  right: 0px;
+  
+}
+
+.table-header{
+	position:relative;
+  right: 20px;
+}
+
+.colomns{
+  position:relative;
+  right: 55px;
+}
+.elements{
+	position:relative;
+  right: 35px;
+}
+
+.cells{
+	position:relative;
+	left:20px;
+}
+
+
 .addstudent{
   position:relative;
   top: 50px;
@@ -31,6 +67,8 @@ body{
   bottom: 0px;
   left: 70px;
   right: 0px;
+  margin: auto;
+  border-radius: 8px;
 }
 .loginbox {
     width: 500px;
@@ -77,6 +115,48 @@ div.photo {
   width: 59%;
   height: 100%  
 }
+
+.tHeader{
+	color:white;
+}
+.tHeader2{
+	position:relative;
+	color:white;
+	 top: 12px;
+	 left:37px;
+}
+
+.tHeader1{
+	position:relative;
+	color:white;
+	 bottom: 64px;
+	 
+}
+.Selement{
+	position:relative;
+	bottom:60px;
+}
+.Sselement{
+	position:relative;
+	left:15px;
+}
+.tCol{
+	position: relative;
+	top:12px;
+}
+
+.teachElements{
+	position:relative;
+	top:12px
+}
+.Telement{
+	position: relative;
+	left: 25px;
+}
+.Teelement{
+	position: relative;
+	left: 50px;
+}
 .submit {
 	background: #76320a;
     border: none;
@@ -93,7 +173,22 @@ div.photo {
     box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
 }
 
+.submit1{
+    background: #76320a;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    
+}
 
+.submit2{
+    background: #76320a;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
 
 .left input {
     border: none;
@@ -107,5 +202,35 @@ div.photo {
     font-weight: 600;
     font-size: 14px;
 }
+
+.ThirdTable{
+	position:relative;
+	top:50px;
+	left:70px;
+	border-radius: 8px;
+}
+.thElement1{
+	position:relative;
+	left:180px;
+}
+.thElement2{
+	position:relative;
+	left:200px;
+}
+.thElement3{
+	position:relative;
+	left:140px;
+}
+.techerC{
+	position:relative;
+	right:20px;
+}
+
+.thHeader{
+	color:white;
+	
+}
+
+
 
 

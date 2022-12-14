@@ -14,8 +14,9 @@ String classId = request.getParameter("forClass");
 String subject     = request.getParameter("forSubject");
 
 Teacher object = new Teacher();
-
+System.out.println(teacherName +" " + classId + " "+ subject);
 object.asignTeacher(teacherName, classId, subject);
+
 //object.addTeacher(teacherId, teacherName, subject, numberOfClasses, classId);
 
 %>
