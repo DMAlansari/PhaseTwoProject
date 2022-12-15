@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div class="errorMSG">
 <%
 String msg = request.getParameter("message");
 String error = request.getParameter("error");
@@ -17,7 +17,7 @@ String error = request.getParameter("error");
 if(error!=null){
 	out.println(msg);
 }
-%>
+%></div>
 <section class="login">
 <div class="loginbox">
 <div class="left">

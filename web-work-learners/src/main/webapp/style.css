@@ -129,7 +129,7 @@ div.photo {
 .tHeader1{
 	position:relative;
 	color:white;
-	 bottom: 64px;
+	 bottom: 55px;
 	 
 }
 .Selement{
@@ -228,6 +228,14 @@ div.photo {
 
 .thHeader{
 	color:white;
+	
+}
+
+.errorMSG{
+	position:relative;
+	left: 600px;
+	color: red;
+	font-size: 20px;
 	
 }
 
